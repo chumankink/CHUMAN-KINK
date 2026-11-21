@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Connexion — Chuman-Kink</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  <style>
+    body{display:grid;place-items:center;min-height:100vh;padding:24px}
+    .login-card{width:min(100%,420px);padding:28px;border:1px solid var(--border,#333);border-radius:18px;background:var(--panel,#171717)}
+    .login-card h1{margin-top:0}.login-card input{width:100%;box-sizing:border-box;padding:14px;border-radius:10px;margin:12px 0}
+    .login-card button{width:100%;padding:14px;border-radius:10px;cursor:pointer}.error{color:#ff8585}
+  </style>
+</head>
+<body>
+  <main class="login-card">
+    <h1>CHUMAN-KINK</h1>
+    <p>Accès administrateur</p>
+    {% if error %}<p class="error" role="alert">{{ error }}</p>{% endif %}
+    <form method="post" action="{{ url_for('login') }}">
+      <input type="hidden" name="csrf_token" value="{{ csrf_token }}">
+      <label for="password">Mot de passe administrateur</label>
+      <input id="password" name="password" type="password" autocomplete="current-password" required autofocus>
+      <button type="submit">Se connecter</button>
+    </form>
+  </main>
+</body>
+</html>

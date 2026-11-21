@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#101827">
+  <meta name="csrf-token" content="{{ csrf_token }}">
+  <title>Chuman-Kink</title>
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+  <main class="app-shell">
+    <header class="topbar">
+      <div class="brand">
+        <div class="brand-mark">CK</div>
+        <div>
+          <h1>Chuman-Kink</h1>
+          <p>Noyau indépendant · Version 0.2.2</p>
+        </div>
+      </div>
+      <div class="status-wrap">
+        <span class="status-dot" id="statusDot"></span>
+        <span id="statusText">Connexion…</span>
+        <form method="post" action="/logout" id="logoutForm"><input type="hidden" name="csrf_token" value="{{ csrf_token }}"><button class="ghost-button" type="submit">Quitter</button></form>
+      </div>
+    </header>
+
+    <section class="intro">
+      <p class="eyebrow">ESPACE DE CONVERSATION</p>
+      <h2>Une identité en construction.</h2>
+      <p>Le noyau et la mémoire de conversation sont prêts. Le moteur d'IA sera activé après configuration sécurisée de sa clé API.</p>
+    </section>
+
+    <section class="chat-card">
+      <div class="chat-heading">
+        <div>
+          <h3>Conversation</h3>
+          <p>Les échanges sont enregistrés dans la base locale du projet.</p>
+        </div>
+        <button class="ghost-button" id="resetBtn" type="button">Effacer</button>
+      </div>
+      <div class="messages" id="messages" aria-live="polite">
+        <div class="message assistant">
+          <div class="avatar">CK</div>
+          <div class="bubble">
+            <span class="sender">CHUMAN-KINK</span>
+            <p>Mon interface est opérationnelle. Mon intelligence externe reste à connecter.</p>
+          </div>
+        </div>
+      </div>
+      <form id="chatForm" class="composer">
+        <label class="sr-only" for="messageInput">Ton message</label>
+        <textarea id="messageInput" rows="1" maxlength="4000" placeholder="Écris un message…" required></textarea>
+        <button id="sendBtn" type="submit" aria-label="Envoyer">Envoyer</button>
+      </form>
+      <p class="fine-print">Prototype 0.2.2 · Ne saisis aucune information sensible.</p>
+    </section>
+
+    <footer>
+      <span>CHUMAN-KINK CORE</span>
+      <span>Identité · Mémoire · Conversation</span>
+    </footer>
+  </main>
+  <script src="/static/app.js"></script>
+</body>
+</html>
